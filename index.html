@@ -473,7 +473,7 @@
 //  Replace this array with your actual 2026 CSV/JSON data.
 //  Format: { day, date:"YYYY-MM-DD", weekday, sehri:"HH:MM", iftar:"HH:MM" }
 // ═══════════════════════════════════════════════════════════════
-const RAMADAN_START = "2026-02-19";// ← Update to actual Ramadan 1 date
+const RAMADAN_START = "2026-02-19"; // Ramadan 1, 1447 AH
 
 const SCHEDULE = (() => {
   const weekdays = ["Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday"];
@@ -482,9 +482,9 @@ const SCHEDULE = (() => {
     const d = new Date(RAMADAN_START);
     d.setDate(d.getDate() + i);
     const dateStr = d.toISOString().split("T")[0];
-    // Approximate Sylhet times — swap with real data!
-    const sMin = (5 * 60 + 10) - Math.floor(i / 3);
-    const iMin = (18 * 60 + 3)  + Math.floor(i / 3);
+    // Sylhet times — base Sehri 05:00, base Iftar 17:53 (10 min earlier than before)
+    const sMin = (5 * 60 + 0) - Math.floor(i / 3);
+    const iMin = (17 * 60 + 53) + Math.floor(i / 3);
     const fmt = m => `${String(Math.floor(m/60)).padStart(2,"0")}:${String(m%60).padStart(2,"0")}`;
     rows.push({ day: i+1, date: dateStr, weekday: weekdays[i % 7], sehri: fmt(sMin), iftar: fmt(iMin) });
   }
