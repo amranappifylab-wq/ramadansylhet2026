@@ -473,10 +473,10 @@
 //  Replace this array with your actual 2026 CSV/JSON data.
 //  Format: { day, date:"YYYY-MM-DD", weekday, sehri:"HH:MM", iftar:"HH:MM" }
 // ═══════════════════════════════════════════════════════════════
-const RAMADAN_START = "2026-02-18"; // ← Update to actual Ramadan 1 date
+const RAMADAN_START = "2026-02-19";// ← Update to actual Ramadan 1 date
 
 const SCHEDULE = (() => {
-  const weekdays = ["Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday"];
+  const weekdays = ["Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday"];
   const rows = [];
   for (let i = 0; i < 30; i++) {
     const d = new Date(RAMADAN_START);
